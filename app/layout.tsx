@@ -25,6 +25,10 @@ export default function RootLayout({
           <li>
             <Link href="/maze">Maze</Link>
           </li>
+
+          <li>
+            <Link href="/vanilla-page-builder">Vanilla Page Builder</Link>
+          </li>
         </ul>
 
         <main>{children}</main>
