@@ -1,0 +1,13 @@
+.card {
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  opacity: 1;
+  transition: all .3s;
+}
+
+  .card {
+  margin: 1rem;
+}

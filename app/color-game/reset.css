@@ -1,0 +1,17 @@
+.reset {
+  background-color: white;
+  color: rgb(35, 35, 35);
+  outline: none;
+  border: none;
+  padding: 1em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 2em;
+  cursor: pointer;
+  transition: .6s;
+}
+
+.reset:hover {
+  color: white;
+  background-color: steelblue;
+}

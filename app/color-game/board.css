@@ -1,0 +1,9 @@
+.question {
+  font-size: 4em;
+  margin: .25em;
+}
+
+.message, .countdown {
+  font-size: 2em;
+  margin: 0;
+}
