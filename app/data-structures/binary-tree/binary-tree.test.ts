@@ -1,43 +1,5 @@
 import { describe, it, expect } from "vitest";
-import BinaryTree from "./binary-tree";
-import TreeNode from "./tree-node";
-
-const createBinaryTree = () => {
-  // TreeNode instantiation
-  const nodeA = new TreeNode(1);
-  const nodeB = new TreeNode(2);
-  const nodeC = new TreeNode(3);
-  const nodeD = new TreeNode(4);
-  const nodeE = new TreeNode(5);
-  const nodeF = new TreeNode(6);
-  const nodeG = new TreeNode(7);
-  const nodeH = new TreeNode(8);
-  const nodeI = new TreeNode(9);
-
-  // construct the Binary Tree
-  nodeA.left = nodeB;
-  nodeA.right = nodeC;
-  nodeB.left = nodeD;
-  nodeB.right = nodeE;
-  nodeE.left = nodeG;
-  nodeE.right = nodeH;
-  nodeC.left = nodeF;
-  nodeF.right = nodeI;
-
-  // link parent pointer
-  nodeB.parent = nodeA;
-  nodeC.parent = nodeA;
-  nodeD.parent = nodeB;
-  nodeE.parent = nodeB;
-  nodeG.parent = nodeE;
-  nodeH.parent = nodeE;
-  nodeF.parent = nodeC;
-  nodeI.parent = nodeF;
-
-  const binaryTree = new BinaryTree(nodeA);
-
-  return binaryTree;
-};
+import { createBinaryTree } from "./helpers";
 
 describe("測試 BinaryTree 類別", () => {
   it("能夠正確地執行 preorder 函式", () => {
