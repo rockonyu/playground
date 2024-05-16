@@ -1,6 +1,6 @@
-import TreeNode from "../tree-node";
-import Queue from "../../queue";
-import Stack from "../../stack";
+import TreeNode from "./tree-node";
+import Queue from "../queue";
+import Stack from "../stack";
 
 export class BinaryTree {
   root: TreeNode;
@@ -60,43 +60,43 @@ export class BinaryTree {
   }
 
   public preorder(current: TreeNode | null) {
-    let result = "";
+    const result: number[] = [];
 
     if (current) {
-      result += `${current.value} `; // V
-      result += this.preorder(current.left); // L
-      result += this.preorder(current.right); // R
+      result.push(current.val); // V
+      result.push(...this.preorder(current.left)); // L
+      result.push(...this.preorder(current.right)); // R
     }
 
     return result;
   }
 
   public inorder(current: TreeNode | null) {
-    let result = "";
+    const result: number[] = [];
 
     if (current) {
-      result += this.inorder(current.left); // L
-      result += `${current.value} `; // V
-      result += this.inorder(current.right); // R
+      result.push(...this.inorder(current.left)); // L
+      result.push(current.val); // V
+      result.push(...this.inorder(current.right)); // R
     }
 
     return result;
   }
 
   public postorder(current: TreeNode | null) {
-    let result = "";
+    const result: number[] = [];
 
     if (current) {
-      result += this.postorder(current.left); // L
-      result += this.postorder(current.right); // R
-      result += `${current.value} `; // V
+      result.push(...this.postorder(current.left)); // L
+      result.push(...this.postorder(current.right)); // R
+      result.push(current.val); // V
     }
 
     return result;
   }
 
   public levelorder() {
-    let result = "";
+    const result: number[] = [];
 
     const queue = new Queue<TreeNode>();
     queue.enqueue(this.root);
@@ -104,7 +104,7 @@ export class BinaryTree {
     while (!queue.isEmpty()) {
       const current = queue.dequeue()!;
 
-      result += `${current.value} `;
+      result.push(current.val);
 
       if (current.left != null) {
         queue.enqueue(current.left);
@@ -119,7 +119,7 @@ export class BinaryTree {
   }
 
   public preorderIterative() {
-    let result = "";
+    const result: number[] = [];
 
     const stack = new Stack<TreeNode>();
     stack.push(this.root);
@@ -128,7 +128,7 @@ export class BinaryTree {
       const current = stack.pop();
 
       if (current) {
-        result += `${current.value} `;
+        result.push(current.val);
 
         if (current.right) {
           stack.push(current.right);
@@ -144,7 +144,7 @@ export class BinaryTree {
   }
 
   public inorderIterative() {
-    let result = "";
+    const result: number[] = [];
     let current: TreeNode | null = this.root;
 
     const stack = new Stack<TreeNode>();
@@ -157,7 +157,7 @@ export class BinaryTree {
       }
 
       current = stack.pop()!;
-      result += `${current.value} `;
+      result.push(current.val);
       current = current.right;
     }
 
@@ -165,17 +165,17 @@ export class BinaryTree {
   }
 
   public postorderIterative() {
-    let result = "";
+    const result: number[] = [];
 
     const stack = new Stack<TreeNode>();
     stack.push(this.root);
 
-    const output = new Stack<string>();
+    const output = new Stack<number>();
 
     while (!stack.isEmpty()) {
       const current = stack.pop()!;
 
-      output.push(current.value);
+      output.push(current.val);
 
       if (current.left) {
         stack.push(current.left);
@@ -187,18 +187,18 @@ export class BinaryTree {
     }
 
     while (!output.isEmpty()) {
-      result += `${output.pop()} `;
+      result.push(output.pop()!);
     }
 
     return result;
   }
 
   public inorderByParent() {
-    let result = "";
+    const result: number[] = [];
     let current = this.leftmost(this.root);
 
     while (current) {
-      result += `${current.value} `;
+      result.push(current.val);
       current = this.inorderSuccessor(current)!;
     }
 
@@ -206,11 +206,11 @@ export class BinaryTree {
   }
 
   public inorderReverse() {
-    let result = "";
+    const result: number[] = [];
     let current = this.rightmost(this.root);
 
     while (current) {
-      result += `${current.value} `;
+      result.push(current.val);
       current = this.inorderPredecessor(current)!;
     }
 
